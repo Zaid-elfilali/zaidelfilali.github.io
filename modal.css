@@ -1,0 +1,240 @@
+/* 
+ * Fichier : modal.css
+ * Description : Styles spécifiques pour les modales de projets
+ * Auteur : Zaid EL FILALI
+ * Date : 2025
+ */
+
+/* Overlay de la modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenu de la modal */
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.4s ease;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* En-tête de la modal */
+.modal-header {
+    padding: 25px 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--gray-light);
+    padding-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.modal-close {
+    background: var(--gray-light);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    color: var(--dark);
+    flex-shrink: 0;
+    margin-left: 15px;
+}
+
+.modal-close:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Corps de la modal */
+.modal-body {
+    padding: 20px 30px 30px;
+}
+
+/* Image dans la modal */
+.modal-image {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+    overflow: hidden;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Description du projet */
+.modal-description {
+    margin-bottom: 25px;
+    line-height: 1.7;
+    color: var(--gray);
+    font-size: 1.05rem;
+}
+
+/* Technologies utilisées */
+.modal-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.modal-tech-tag {
+    background: var(--primary);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Liens de la modal */
+.modal-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.modal-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.modal-link:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Responsive pour les modales */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .modal-header {
+        padding: 20px 20px 0;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .modal-body {
+        padding: 15px 20px 20px;
+    }
+    
+    .modal-image {
+        height: 200px;
+        font-size: 3rem;
+    }
+    
+    .modal-links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .modal-link {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        padding: 10px;
+    }
+    
+    .modal-content {
+        width: 100%;
+        border-radius: 12px;
+    }
+    
+    .modal-header {
+        padding: 15px 15px 0;
+    }
+    
+    .modal-body {
+        padding: 10px 15px 15px;
+    }
+    
+    .modal-title {
+        font-size: 1.3rem;
+    }
+    
+    .modal-image {
+        height: 150px;
+        font-size: 2.5rem;
+    }
+    
+    .modal-tech {
+        gap: 8px;
+    }
+    
+    .modal-tech-tag {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+    }
+}
